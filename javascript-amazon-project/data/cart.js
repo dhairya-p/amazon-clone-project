@@ -32,3 +32,15 @@ export function removeFromCart(productId) {
     }
     saveToStorage()
 }
+
+export function updateDeliveryOption(productId, deliveryOptionId) {
+    const itemIndex = cart.findIndex((cartItem) => 
+        productId === cartItem.productId
+    );
+
+    if (itemIndex !== -1) {
+        const matchingItem = cart[itemIndex];
+        matchingItem.deliveryOptionId = deliveryOptionId;
+    }
+    saveToStorage()
+}
